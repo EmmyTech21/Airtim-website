@@ -1,0 +1,148 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy/Checkout</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    //or
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .data_link {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        form {
+            margin: 10px 0;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 8px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="data_link">
+        <form action="/purchase_airtime" method="post" class="airtime-form">
+            <input type="text" name="phone_number" placeholder="Enter phone number" required>
+            <input type="number" name="amount" placeholder="Enter amount" required>
+            <button type="submit" class="link_1">Buy Airtime</button>
+        </form>
+        <form action="/purchase_data" method="post" class="data-form">
+            <input type="text" name="phone_number" placeholder="Enter phone number" required>
+            <input type="number" name="data_amount" placeholder="Enter data amount (GB)" required>
+            <button type="submit" class="link_2">Buy Data</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const {
+                createClient
+            } = supabase;
+            const supabaseUrl = 'https://ebeoqlmdagvnnovkthup.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImViZW9xbG1kYWd2bm5vdmt0aHVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ1NzIwMDksImV4cCI6MjAzMDE0ODAwOX0.MmmGY7HPxO9bFZEpr421pNgs4vyoj85ZYSFa-j9WcGg';
+            const supabase = createClient(supabaseUrl, supabaseKey);
+
+            const airtimeForm = document.querySelector('.airtime-form');
+            const dataForm = document.querySelector('.data-form');
+
+            airtimeForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                const phone_number = formData.get('phone_number');
+                const amount = formData.get('amount');
+
+                try {
+                    const {
+                        data,
+                        error
+                    } = await supabase
+                        .from('airtime_purchases')
+                        .insert([{
+                            phone_number: phone_number,
+                            amount: amount
+                        }]);
+
+                    if (error) throw error;
+                    alert('Airtime purchase successful!');
+                    console.log(data);
+                } catch (error) {
+                    alert('Error processing airtime purchase');
+                    console.error('Error:', error);
+                }
+            });
+
+            dataForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                const phone_number = formData.get('phone_number');
+                const data_amount = formData.get('data_amount');
+
+                try {
+                    const {
+                        data,
+                        error
+                    } = await supabase
+                        .from('data_purchases')
+                        .insert([{
+                            phone_number: phone_number,
+                            data_amount: data_amount
+                        }]);
+
+                    if (error) throw error;
+                    alert('Data purchase successful!');
+                    console.log(data);
+                } catch (error) {
+                    alert('Error processing data purchase');
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

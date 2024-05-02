@@ -1,0 +1,439 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>AKI_TECH</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --margin-top: 20px;
+            --margin-left: 15px;
+            --main-color: #ff9b9b;
+            --main-text-color: ;
+            --text-margin: 20px 10px 10px;
+            --middle-font: 20px;
+            ---meduim-font: 32px;
+            --large-font: 45px;
+            --padding-meduim: 20px 30px;
+            --margin-bottom: 30px;
+            --margin-bottom: 30px;
+            --bg-white: #fff;
+            --bg-light-grey: #fff1f1;
+            --bg-light-dark: #480707;
+            --center-text: center;
+            --bg-grey: #cfd7df;
+            --tw-bg-opacity: 1;
+        }
+        
+        header {
+            background: linear-gradient(to right, #ff9b9b, #ff6b6b);
+        }
+        
+        ul {
+            padding: var(--padding-meduim);
+        }
+        
+        nav,
+        ul {
+            display: flex;
+            list-style-type: none;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        
+        nav img {
+            width: 70px;
+            height: 70px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--bg-white);
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+            background: linear-gradient(to right, #ff9b9b, #ff6b6b);
+        }
+        
+        .hero-img {
+            /* margin: var(--text-margin); */
+            background-image: url(/src/img/image-1.png);
+            background-blend-mode: multiply;
+            height: 100%;
+            background-color: linear-gradient(to right, #ff9b9b, #ff6b6b);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            /* Ensure it takes full width of its container */
+        }
+        
+        .hero-text {
+            margin-top: var(--margin-top);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hero-text h1 {
+            color: var(--bg-white);
+            font-weight: 800;
+            margin: var(--text-margin);
+            font-size: var(---meduim-font);
+        }
+        
+        .hero-text p {
+            color: var(--bg-light-grey);
+            font-size: var(--middle-font);
+            line-height: 1.2;
+            margin: var(--text-margin);
+        }
+        
+        .data_link {
+            margin: var(--text-margin);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: var(--margin-bottom);
+        }
+        
+        .data_link a {
+            text-decoration: none;
+            width: 400px;
+            border-radius: 10px;
+            border: solid 1px #F2F3FC;
+            padding: 10px 20px;
+        }
+        
+        .data_link a:hover {
+            background-color: #fff;
+        }
+        
+        .link_1 {
+            background-color: var(--bg-white);
+            color: var(--main-color);
+        }
+        
+        .link_2 {
+            color: var(--bg-white);
+        }
+        
+        .link_2:hover {
+            color: var(--main-color);
+        }
+        
+        .service-text {
+            text-align: center;
+            padding: var(--padding-meduim);
+        }
+        
+        .service-text h1 {
+            font-size: var(---meduim-font);
+            color: var(--main-color);
+        }
+        
+        .service-text p {
+            font-size: var(--middle-font);
+            color: var(--bg-light-dark);
+            margin-bottom: var(--margin-bottom);
+        }
+        
+        .service-sec {
+            background-color: var(--bg-grey);
+        }
+        
+        .card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(to left, #ff6b6b, #e51d1d);
+            margin: 20px 20px;
+        }
+        
+        .card h3 {
+            padding-top: 20px;
+            color: var(--bg-white);
+            margin-left: var(--margin-left);
+            font-size: 20px;
+        }
+        
+        .card p {
+            color: var(--bg-light-dark);
+            margin-left: var(--margin-left);
+            font-size: 20px;
+        }
+        
+        .act-btn {
+            text-align: center;
+            padding-top: 30px;
+        }
+        
+        .act-btn span {
+            display: block;
+            font-size: 35px;
+            color: var(--bg-white);
+        }
+        
+        .act-btn a {
+            display: inline-block;
+            font-size: 10px;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 10%;
+            background-color: var(--bg-white);
+            color: var(--main-color);
+            text-decoration: none;
+        }
+        
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: var(--text-margin);
+            /* align-items: center; */
+        }
+        
+        .faq span {
+            padding: var(--padding-meduim);
+            display: block;
+            font-size: 18px;
+            background-color: rgb(236, 240, 244);
+        }
+        
+        .faq span:hover {
+            background-color: rgb(131, 134, 136);
+        }
+        
+        aside {
+            background-color: var(--bg-white);
+        }
+        
+        aside p {
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        @media (min-width: 370px) {
+            ul {
+                display: none;
+            }
+            .faq {
+                width: 500px;
+            }
+        }
+        
+        @media (min-width: 760px) {
+            ul {
+                display: flex;
+            }
+            .hero {
+                flex-direction: row;
+            }
+            .hero-img {
+                width: 100%;
+                height: auto;
+            }
+            .card-sec {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .card {
+                flex-grow: 2;
+            }
+            .faq {
+                margin: 0 auto;
+            }
+            .hero,
+            h1,
+            p {
+                font-weight: bolder;
+                font-size: var(--large-font);
+            }
+        }
+    </style>
+    <header>
+        <nav>
+            <img src="/src/img/Aki_TECH.png" alt="">
+
+            <ul>
+                <li><a href="">Sign Up</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">AirTime</a></li>
+                <li><a href="">Data</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Recharge Your Life</h1>
+                <p>Easily purchase airtime and data subscriptions for your mobile devices. Get the best deals and manage your account with ease.</p>
+
+
+                <div class="data_link">
+                    <a class="link_1" href="">Buy Airtime</a>
+                    <a class="link_2" href="">Buy Data</a>
+                </div>
+            </div>
+            <div class="hero-img"></div>
+        </section>
+
+        <section class="service-sec">
+            <div class="service-text">
+                <h1>Featured Airtime Plans</h1>
+                <p>Check out our top-selling airtime plans and get the best deals.</p>
+            </div>
+
+            <div class="card-sec">
+                <div class="card card-1">
+                    <h3>₦500 Airtime</h3>
+                    <p>instant top-up for your phone.</p>
+                    <div class="act-btn">
+                        <span>₦500</span>
+                        <a href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+                <div class="card card-2">
+                    <h3>₦1000 Airtime</h3>
+                    <p>Generous top-up for your phone..</p>
+                    <div class="act-btn">
+                        <span>₦1000</span>
+                        <a href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+                <div class="card card-3">
+                    <h3>₦2000 Airtime</h3>
+                    <p>Substantial top-up for your phone.</p>
+                    <div class="act-btn">
+                        <span>₦2000</span>
+                        <a href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="service-text">
+                <h1>Featured Data Plans</h1>
+                <p>Check out our top-selling data plans and get the best deals.</p>
+            </div>
+
+            <div class="card-sec">
+                <div class="card card-1">
+                    <h3>1GB Data</h3>
+                    <p>Stay connected with 1GB of data.</p>
+                    <div class="act-btn">
+                        <span>₦500</span>
+                        <a href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+                <div class="card card-2">
+                    <h3>3GB Data</h3>
+                    <p>Enjoy 3GB of high-speed data.</p>
+                    <div class="act-btn">
+                        <span>₦1000</span>
+                        <a href="" href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+                <div class="card card-3">
+                    <h3>5GB Data</h3>
+                    <p>Surf the web with 5GB of data.</p>
+                    <div class="act-btn">
+                        <span>₦2000</span>
+                        <a href="/src/form.html">BUYNOW</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <aside>
+                <div class="service-text">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Get answers to your questions about our airtime and data services.</p>
+                </div>
+                <div class="faq">
+                    <!-- Section 1 -->
+                    <span>How do I purchase airtime and data?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 transition-transform" id="toggleMessage1">
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </span>
+                    <div id="messageContainer1" style="display: none;">
+                        <p>To purchase airtime or data, simply click the "Buy Airtime" or "Buy Data" button on the homepage. You'll be taken to a secure checkout page where you can enter your payment details and complete the transaction.</p>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <span>How do I manage my account?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 transition-transform" id="toggleMessage2">
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </span>
+                    <div id="messageContainer2" style="display: none;">
+                        <p>Manage your account by logging in through the "Login" button at the top of the homepage. From there, you can view your purchase history, update your profile, and adjust your service settings.</p>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <span>What are the benefits of registering?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 transition-transform" id="toggleMessage3">
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </span>
+                    <div id="messageContainer3" style="display: none;">
+                        <p>Registering with us allows you to quickly purchase airtime and data, track your usage, and receive updates on special offers and discounts directly to your email.</p>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <span>How do I check my balance?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 transition-transform" id="toggleMessage4">
+                        <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                </span>
+                    <div id="messageContainer4" style="display: none;">
+                        <p>You can check your balance by accessing the "Account" section after logging in. Your balance and other relevant details will be displayed on your dashboard.</p>
+                    </div>
+
+                </div>
+
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <em>&copy;2024 Airtime & Data. All rights reserved. Terms of Service Privacy
+        </em>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let toggles = document.querySelectorAll('svg[id^="toggleMessage"]');
+        toggles.forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                let number = this.id.replace('toggleMessage', '');
+                let messageContainer = document.getElementById('messageContainer' + number);
+                if (messageContainer.style.display === 'none') {
+                    messageContainer.style.display = 'block';
+                } else {
+                    messageContainer.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</html>
